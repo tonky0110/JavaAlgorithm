@@ -1,0 +1,24 @@
+
+public class LinkedList {
+	Node header;
+	static class Node {
+		int data;
+		Node next = null;
+		
+		public Node() {
+		}
+		
+		public Node(int d) {
+			data = d;
+			next = null;
+		}
+	}
+	
+	LinkedList() {
+		header = new Node();
+	}
+	
+	void append(int d) {
+		Node n = new Node(d);
+	} 
+}

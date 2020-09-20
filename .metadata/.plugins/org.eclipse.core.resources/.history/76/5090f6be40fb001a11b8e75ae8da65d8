@@ -1,0 +1,72 @@
+package com.tonky.util;
+import com.tonky.util.*;
+import com.tonky.util.LinkedList.Node;
+
+public class LinkedListNode {
+	public static void main(String[] args) {
+		LinkedList ll = new LinkedList();
+		ll.append(1);
+		ll.append(2);
+		ll.append(3);
+		ll.append(4);
+		ll.append(5);
+		
+		ll.retrieve();
+		
+		
+		ll.delete(1);
+		ll.retrieve();
+	}
+	
+	static class LinkedList {
+		Node header;
+		LinkedList() {
+			header = new Node();
+		}
+		
+		void append(int d) {
+			Node end = new Node(d);
+			Node n = header;
+			while(n.next != null) {
+				n = n.next;
+			}
+			n.next = end;
+		}
+		void delete(int d) {
+			Node n = header.next;
+			while (n.next != null) {
+				if(n.data == d) {
+					n = n.next;
+				} else {
+					n = n.next;
+				}
+			}
+		}
+		void retrieve() {
+			Node n = header.next;
+			while(n.next != null) {
+				System.out.print(n.data + " -> ");
+				n = n.next; 
+			}
+			System.out.println(n.data);
+		}
+		
+		// inner class
+		static class Node {
+			int data;
+			Node next = null;
+			
+			public Node() {
+			}
+			
+			public Node(int d) {
+				data = d;
+				next = null;
+			}
+		}
+	}
+}
+
+
+
+
