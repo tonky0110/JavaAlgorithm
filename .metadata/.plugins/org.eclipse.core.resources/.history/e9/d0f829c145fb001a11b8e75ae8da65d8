@@ -1,23 +1,39 @@
 package com.tonky.util;
 
-public class LinkedListNode {
+
+
+public class RemoveDups {
 	public static void main(String[] args) {
 		LinkedList ll = new LinkedList();
+		
 		ll.append(1);
 		ll.append(2);
 		ll.append(3);
+		ll.append(2);
 		ll.append(4);
-		ll.append(5);
-		
 		ll.retrieve();
 		
-		
-		ll.delete(1);
-		ll.retrieve();
+//		ll.removeDups();
+//		ll.retrieve();
 	}
 	
 	static class LinkedList {
 		Node header;
+		
+		static class Node {
+			int data;
+			Node next;
+			
+			Node() {
+				data = 0;
+				next = null;
+			}
+			Node(int d) {
+				data = d;
+				next = null;
+			}
+		}
+		
 		LinkedList() {
 			header = new Node();
 		}
@@ -25,46 +41,45 @@ public class LinkedListNode {
 		void append(int d) {
 			Node end = new Node(d);
 			Node n = header;
-			while(n.next != null) {
+			while (n.next != null) {
 				n = n.next;
 			}
 			n.next = end;
 		}
+		
 		void delete(int d) {
 			Node n = header;
-			while (n.next != null) {
-				if(n.next.data == d) {
+			while(n.next != null) {
+				if (n.next.data == d) {
 					n.next = n.next.next;
 				} else {
 					n = n.next;
 				}
 			}
 		}
+		
 		void retrieve() {
 			Node n = header.next;
 			while(n.next != null) {
 				System.out.print(n.data + " -> ");
-				n = n.next; 
+				n = n.next;
 			}
 			System.out.println(n.data);
 		}
 		
-		// inner class
-		static class Node {
-			int data;
-			Node next = null;
-			
-			public Node() {
-			}
-			
-			public Node(int d) {
-				data = d;
-				next = null;
+		void removeDups() {
+			Node n = header;
+			while(n.next != null) {
+				Node r = n;
+				while(r.next != null) {
+					if (n.data == r.next.data) {
+						r.next = r.next.next;
+					} else {
+						r = r.next;
+					}
+				}
+				n = n.next;
 			}
 		}
 	}
 }
-
-
-
-

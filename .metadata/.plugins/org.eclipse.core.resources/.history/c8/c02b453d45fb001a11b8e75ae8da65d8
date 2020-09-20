@@ -1,4 +1,6 @@
 package com.tonky.util;
+import com.tonky.util.*;
+import com.tonky.util.LinkedList.Node;
 
 public class LinkedListNode {
 	public static void main(String[] args) {
