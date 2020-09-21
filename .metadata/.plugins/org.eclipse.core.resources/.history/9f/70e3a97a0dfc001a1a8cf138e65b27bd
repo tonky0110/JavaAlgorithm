@@ -59,10 +59,6 @@ public class LinkedListRunner {
 		
 		
 		System.out.println("-------------------------------");
-		found = ll.kthToLasWithPointer(ll.header, 1);
-		System.out.println("Found: " + found.data);
-		found = ll.kthToLasWithPointer(ll.header, 2);
-		System.out.println("Found: " + found.data);
 		found = ll.kthToLasWithPointer(ll.header, 3);
 		System.out.println("Found: " + found.data);
 	}
@@ -174,7 +170,7 @@ class LinkedList {
 			if (p1 == null) return null;
 			p1 = p1.next;
 		}
-		while(p1 != null) {
+		while(p1.next != null) {
 			p1 = p1.next;
 			p2 = p2.next;
 		}

@@ -1,5 +1,5 @@
+
 public class LinkedListRunner {
-	
 	public static void main(String[] args) {
 		LinkedList ll = new LinkedList();
 		System.out.println("-------------------------------");
@@ -32,44 +32,7 @@ public class LinkedListRunner {
 		
 		System.out.println("-------------------------------");
 		System.out.println(ll.kthToLas(ll.header, 3).data);;
-		
-		
-		System.out.println("-------------------------------");
-		ll.kthToLasWithStack(ll.header, 3);
-		ll.kthToLasWithStack(ll.header, 4);
-		ll.kthToLasWithStack(ll.header, 5);
-		ll.kthToLasWithStack(ll.header, 6);
-		
-		System.out.println("-------------------------------");
-		Reference r = new Reference();
-		LinkedList.Node found = ll.kthToLasWithStack(ll.header, 3, r);
-		System.out.println("Found: " + found.data);
-		
-		r.count = 0;
-		found = ll.kthToLasWithStack(ll.header, 4, r);
-		System.out.println("Found: " + found.data);
-		
-		r.count = 0;
-		found = ll.kthToLasWithStack(ll.header, 5, r);
-		System.out.println("Found: " + found.data);
-		
-		r.count = 0;
-		found = ll.kthToLasWithStack(ll.header, 6, r);
-		System.out.println("Found: " + found.data);
-		
-		
-		System.out.println("-------------------------------");
-		found = ll.kthToLasWithPointer(ll.header, 1);
-		System.out.println("Found: " + found.data);
-		found = ll.kthToLasWithPointer(ll.header, 2);
-		System.out.println("Found: " + found.data);
-		found = ll.kthToLasWithPointer(ll.header, 3);
-		System.out.println("Found: " + found.data);
 	}
-}
-
-class Reference{
-	int count;
 }
 
 class LinkedList {
@@ -139,46 +102,6 @@ class LinkedList {
 			n = n.next;
 		}
 		return n;
-	}
-	
-	
-	int kthToLasWithStack(Node n, int k) {
-		if (n == null) {
-			return 0;
-		}
-		
-		int count = kthToLasWithStack(n.next, k) + 1;
-		if (count == k) {
-			System.out.println(k + "th to last node is " + n.data);
-		}
-		return count;
-	}
-	Node kthToLasWithStack(Node n, int k, Reference r) {
-		if (n == null) {
-			return null;
-		}
-		
-		Node found = kthToLasWithStack(n.next, k, r);
-		r.count++;
-		if (r.count == k) {
-			return n;
-		}
-		return found;
-	}
-	
-	Node kthToLasWithPointer(Node first, int k) {
-		Node p1 = first;
-		Node p2 = first;
-		
-		for(int i = 0; i < k; i++) {
-			if (p1 == null) return null;
-			p1 = p1.next;
-		}
-		while(p1 != null) {
-			p1 = p1.next;
-			p2 = p2.next;
-		}
-		return p2;
 	}
 	static class Node {
 		int data;
