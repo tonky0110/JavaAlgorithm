@@ -1,0 +1,26 @@
+
+public class LinkedListRunner {
+
+}
+
+class LinkedList {
+	Node header;
+	
+	public LinkedList() {
+		Node header = new Node();
+	}
+	class Node {
+		int data;
+		Node next;
+		public Node() {
+			super();
+		}
+		public Node(int data) {
+			super();
+			this.data = data;
+			this.next = null;
+		}
+	}
+	
+	
+}

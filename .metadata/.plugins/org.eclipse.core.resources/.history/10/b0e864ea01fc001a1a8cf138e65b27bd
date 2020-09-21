@@ -1,0 +1,63 @@
+
+public class LinkedListRunner {
+	public static void main(String[] args) {
+		LinkedList ll = new LinkedList();
+		
+		ll.append(1);
+		
+		ll.retrieved();
+	}
+}
+
+class LinkedList {
+	Node header;
+	
+	public LinkedList() {
+		Node header = new Node();
+	}
+	
+	void append(int d) {
+		Node end = new Node(d);
+		Node n = header;
+		while(n.next != null) {
+			n = n.next;
+		}
+		n.next = end;
+	}
+	
+	void delete(int d) {
+		Node n = header.next;
+		while (n.next != null) {
+			if (n.data == d) {
+				n.next = n.next.next;
+			} else {
+				n = n.next;
+			}
+		}
+	} 
+	
+	void retrieved() {
+		Node n = header.next;
+		while (n.next != null) {
+			System.out.print(n.data + " -> ");
+		}
+		System.out.println(n.data);
+	}
+	
+	class Node {
+		int data;
+		Node next;
+		public Node() {
+			super();
+			data = 0;
+			next = null;
+		}
+		public Node(int data) {
+			super();
+			this.data = data;
+			this.next = null;
+		}
+	}
+	
+	
+}
