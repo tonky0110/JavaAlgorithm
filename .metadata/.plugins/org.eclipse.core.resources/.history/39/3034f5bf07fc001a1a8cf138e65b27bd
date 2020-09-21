@@ -15,8 +15,6 @@ public class LinkedListRunner {
 		ll.append(6);
 		ll.append(7);
 		ll.retrieved();
-		ll.delete(1);
-		ll.retrieved();
 	}
 }
 
